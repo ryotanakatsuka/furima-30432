@@ -1,24 +1,62 @@
-# README
+ # テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  users テーブル
 
-Things you may want to cover:
+|Colum            |Type         |Options                                 |
+|-----------------|-------------|----------------------------------------|
+|nickname         |string       |null:false                              |
+|email            |string       |null:false                              |
+|password         |string       |null:false                              |
+|birth_year       |date         |null:false                              |
+|birth_month      |date         |null:false                              |
+|birth_date       |date         |null:false                              |
+|first_name       |string       |null:false                              |
+|last_name        |string       |null:false                              |
+|first_name_kana  |string       |null:false                              |
+|last_name_kana   |string       |null:false                              |
 
-* Ruby version
+     Association
+-  has_many :items
+-  has_many :purchases
 
-* System dependencies
 
-* Configuration
+  items テーブル
 
-* Database creation
+|Colum                   |Type         |Options                                 |
+|------------------------|-------------|----------------------------------------|
+|image(ActiveStorage)    |             |                                        |
+|items_name              |string       |null:false                              |
+|text                    |text         |null:false                              |
+|category                |string       |null:false                              |
+|condition               |string       |null:false                              |
+|shipping_charges        |string       |null:false                              |
+|delivery_source         |string       |null:false                              |
+|delivery_date           |date         |null:false                              |
+|user_id                 |references   |foreign_key: true                       |
 
-* Database initialization
+   Association
+- belongs_to user
+- has_many_purchases
 
-* How to run the test suite
+  purchases テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Colum                   |Type         |Options                                 |
+|------------------------|-------------|----------------------------------------|
+|card_number             |integer      |null:false                              |
+|card_exp_month          |date         |null:false                              |
+|card_exp_year           |date         |null:false                              |
+|card_cvc                |integer      |null:false                              |
+|postal_code             |string       |null:false                              |
+|prefecture              |integer      |null:false                              |
+|city                    |string       |null:false                              |
+|addresses               |string         |null:false                            |
+|building                |string         |null:false                            |
+|phon_number             |integer         |null:false                           |
+|user_id                 |references   |foreign_key: true                       |  
+|item_id                 |references   |foreign_key: true                       |
+ 
+  Association
 
-* Deployment instructions
-
-* ...
+- belongs_to user
+- belongs_to item
+ 
