@@ -30,7 +30,7 @@
 |delivery_source_id      |integer      |null:false                              |
 |delivery_date_id        |integer      |null:false                              |
 |price                   |integer      |null:false                              |
-|user                    |references   |foreign_key: true                       |
+|user                    |references   |null: false foreign_key: true           |
 
    Association
 - belongs_to user
@@ -41,8 +41,8 @@
 
 |Colum                   |Type         |Options                                 |
 |------------------------|-------------|----------------------------------------|
-|user                    |references   |foreign_key: true                       |  
-|item                    |references   |foreign_key: true                       |
+|user                    |references   |null: false foreign_key: true           |  
+|item                    |references   |null: false foreign_key: true           |
 
  Association
 
@@ -54,6 +54,7 @@
 
 |Colum                   |Type         |Options                                 |
 |------------------------|-------------|----------------------------------------|
+|prefecture_id           |string       |null:false                              |
 |postal_code             |string       |null:false                              |
 |city                    |string       |null:false                              |
 |addresses               |string       |null:false                              |
