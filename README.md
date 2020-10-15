@@ -28,9 +28,9 @@
 |condition_id            |integer      |null:false                              |
 |shipping_charges_id     |integer      |null:false                              |
 |delivery_source_id      |integer      |null:false                              |
-|delivery_date_id        |date         |null:false                              |
+|delivery_date_id        |integer      |null:false                              |
 |price                   |integer      |null:false                              |
-|user_id                 |references   |foreign_key: true                       |
+|user                    |references   |foreign_key: true                       |
 
    Association
 - belongs_to user
@@ -41,13 +41,13 @@
 
 |Colum                   |Type         |Options                                 |
 |------------------------|-------------|----------------------------------------|
-|user_id                 |references   |foreign_key: true                       |  
-|item_id                 |references   |foreign_key: true                       |
+|user                    |references   |foreign_key: true                       |  
+|item                    |references   |foreign_key: true                       |
 
  Association
 
 - belongs_to user
-- belongs_to address
+- has_one address
 - belongs_to item
 
   addresses テーブル
@@ -63,4 +63,4 @@
  
   Association
 
-- has_one purchase
+- belongs_to purchase
