@@ -54,13 +54,15 @@
 
 |Colum                   |Type         |Options                                 |
 |------------------------|-------------|----------------------------------------|
-|prefecture_id           |string       |null:false                              |
+|prefecture_id           |integer      |null:false                              |
 |postal_code             |string       |null:false                              |
 |city                    |string       |null:false                              |
 |addresses               |string       |null:false                              |
 |building                |string       |                                        |
 |phone_number            |string       |null:false                              |
- 
+|user                    |references   |null: false foreign_key: true           |  
+|item                    |references   |null: false foreign_key: true           |
+
   Association
 
 - belongs_to purchase
