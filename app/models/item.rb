@@ -7,10 +7,6 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :text
-    validates :condition_id
-    validates :shipping_charges_id
-    validates :delivery_source_id
-    validates :delivery_date_id
     validates :price,           format:{with: /\A[a-z0-9]+\z/i,message: "is invalid. Input half-width characters."}
     validates :genre_id, numericality: { other_than: 1 } 
     validates :condition_id, numericality: { other_than: 1 } 

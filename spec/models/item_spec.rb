@@ -25,37 +25,64 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Text can't be blank")
       end
-      it "condition_idが空では出品できない" do
+      it "condition_idが1では出品できない" do
         @item.condition_id=1
         @item.valid?
         
         expect(@item.errors.full_messages).to include("Condition must be other than 1")
       end
-      it "shipping_charges_idが空では出品できない" do
+      it "condition_idが空では出品できない" do
+        @item.condition_id=""
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition can't be blank", "Condition is not a number")
+      end
+      it "shipping_charges_idが1では出品できない" do
         @item.shipping_charges_id=1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charges must be other than 1")
       end
-      it "delivery_source_idが空では出品できない" do
+      it "shipping_charges_idが空では出品できない" do
+        @item.shipping_charges_id=""
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping charges can't be blank", "Shipping charges is not a number")
+      end
+      it "delivery_source_idが1では出品できない" do
         @item.delivery_source_id=1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery source must be other than 1")
       end
-      it "delivery_date_idが空では出品できない" do
+      it "delivery_source_idが空では出品できない" do
+        @item.delivery_source_id=""
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery source can't be blank", "Delivery source is not a number")
+      end
+      it "delivery_date_idが1では出品できない" do
         @item.delivery_date_id=1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery date must be other than 1")
+      end
+      it "delivery_date_idが空では出品できない" do
+        @item.delivery_date_id=""
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery date can't be blank", "Delivery date is not a number")
       end
       it "priceが空では出品できない" do
         @item.price=""
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      it "genre_idが空では出品できない" do
+      it "genre_idが1では出品できない" do
         @item.genre_id=1
         @item.valid?
-       
+        
         expect(@item.errors.full_messages).to include("Genre must be other than 1")
+      end
+      it "genre_idが空では出品できない" do
+        @item.genre_id=""
+        @item.valid?
+        
+        
+        expect(@item.errors.full_messages).to include("Genre can't be blank", "Genre is not a number")
       end
       it "priceの値が３００より小さいと出品できない" do
         @item.price="299"
