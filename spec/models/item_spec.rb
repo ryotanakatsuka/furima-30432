@@ -11,18 +11,7 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       
-      it "priceの値が３００以上ならば出品できる"do
-          @item.price= 333
-          expect(@item).to be_valid
-      end
-      it "priceが９９９９９９９以下なら出品できる" do
-        @item.price="9999998"
-        expect(@item).to be_valid
-      end
-      it "priceが半角英数ならば出品できる"do
-        @item.price=333123
-        expect(@item).to be_valid
-      end
+      
     end
 
     context "出品できない時" do
@@ -74,7 +63,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
       it "priceの値が９９９９９９９より大きければ出品できない" do
-        @item.price="10000000"
+        @item.price=10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
