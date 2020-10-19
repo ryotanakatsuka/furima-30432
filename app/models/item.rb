@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   
   with_options presence: true do
-    
+    validates :image
     validates :name
     validates :text
     validates :condition_id
@@ -12,7 +12,6 @@ class Item < ApplicationRecord
     validates :delivery_source_id
     validates :delivery_date_id
     validates :price,           format:{with: /\A[a-z0-9]+\z/i,message: "is invalid. Input half-width characters."}
-    validates :genre_id
     validates :genre_id, numericality: { other_than: 1 } 
     validates :condition_id, numericality: { other_than: 1 } 
     validates :delivery_date_id, numericality: { other_than: 1 } 
