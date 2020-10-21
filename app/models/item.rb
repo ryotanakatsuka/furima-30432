@@ -20,8 +20,8 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :genre
     belongs_to_active_hash :condition
-    belongs_to_active_hash :delivery
-    belongs_to_active_hash :shipping
-    belongs_to_active_hash :prefecture 
+    belongs_to_active_hash :delivery_date
+    belongs_to_active_hash :shipping_charges
+    belongs_to_active_hash :delivery_source
     
   end

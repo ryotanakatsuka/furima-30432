@@ -9,6 +9,7 @@ RSpec.describe Item, type: :model do
     context "出品できる時" do
       it "name,text,condition_id,shipping_charges_id,delivery_source_id,delivery_date_id,price,genre_id,が存在すれば出品できる" do
         expect(@item).to be_valid
+        
       end
       
       
