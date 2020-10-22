@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   def move_to_top
    @item=Item.find(params[:id])
      unless @item.user == current_user
-        redirect_to new_user_session_path
+        redirect_to item_path
       end
   end
 
