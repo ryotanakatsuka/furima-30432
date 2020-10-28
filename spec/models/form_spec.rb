@@ -22,7 +22,7 @@ RSpec.describe Form, type: :model do
       expect(@form.errors.full_messages).to include("Postal code is invalid")
       end
       it "delivery_source_idが[1]では登録できない"do
-      @form.delivery_source_id="1"
+      @form.delivery_source_id= 1
       @form.valid?
       expect(@form.errors.full_messages).to include("Delivery source must be other than 1")
       end
@@ -42,7 +42,7 @@ RSpec.describe Form, type: :model do
       expect(@form.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid")
       end
       it "phone_numberが11桁でなければ登録できない"do
-      @form.phone_number="090123456789"
+      @form.phone_number= "090123456789"
       @form.valid?
       expect(@form.errors.full_messages).to include("Phone number is invalid")
       end
