@@ -21,10 +21,10 @@ RSpec.describe Form, type: :model do
       @form.valid?
       expect(@form.errors.full_messages).to include("Postal code is invalid")
       end
-      it "delivery_source_idが空では登録できない"do
-      @form.delivery_source_id=""
+      it "delivery_source_idが[1]では登録できない"do
+      @form.delivery_source_id="1"
       @form.valid?
-      expect(@form.errors.full_messages).to include("Delivery source can't be blank", "Delivery source is not a number")
+      expect(@form.errors.full_messages).to include("Delivery source must be other than 1")
       end
       it "cityが空では登録できない" do
       @form.city=""

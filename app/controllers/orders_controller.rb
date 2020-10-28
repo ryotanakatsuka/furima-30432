@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
   before_action :move_to_top
   
   def index
-    @item=Item.find(params[:item_id])
     @form=Form.new
   end
   def create
@@ -31,13 +30,12 @@ class OrdersController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount:   @item=Item.find(params[:item_id]).price,  
+      amount:   @item.price,  
       card:     order_address_params[:token],    
       currency: 'jpy'                 
     )
   end
   def move_to_top
-    @item=Item.find(params[:item_id])
     if current_user.id == @item.user_id
       redirect_to root_path
     end
