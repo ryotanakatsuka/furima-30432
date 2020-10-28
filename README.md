@@ -37,7 +37,7 @@
 - has_one purchase
 
  
-  purchases テーブル
+  orders テーブル
 
 |Colum                   |Type         |Options                                 |
 |------------------------|-------------|----------------------------------------|
@@ -54,14 +54,14 @@
 
 |Colum                   |Type         |Options                                 |
 |------------------------|-------------|----------------------------------------|
-|prefecture_id           |integer      |null:false                              |
+|delivery_source_id           |integer      |null:false                              |
 |postal_code             |string       |null:false                              |
 |city                    |string       |null:false                              |
 |addresses               |string       |null:false                              |
 |building                |string       |                                        |
 |phone_number            |string       |null:false                              |
-|purchases               |references   |null: false foreign_key: true           |  
+|order               |references   |null: false foreign_key: true           |  
 
   Association
 
-- belongs_to purchase
+- belongs_to order

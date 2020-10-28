@@ -1,7 +1,4 @@
 class Item < ApplicationRecord
-  belongs_to :user
-  has_one :purchase
-  has_one_attached :image
   
   with_options presence: true do
     validates :image
@@ -18,10 +15,13 @@ class Item < ApplicationRecord
   
   
   extend ActiveHash::Associations::ActiveRecordExtensions
-    belongs_to_active_hash :genre
-    belongs_to_active_hash :condition
-    belongs_to_active_hash :delivery_date
-    belongs_to_active_hash :shipping_charges
-    belongs_to_active_hash :delivery_source
-    
-  end
+  belongs_to_active_hash :genre
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :delivery_date
+  belongs_to_active_hash :shipping_charges
+  belongs_to_active_hash :delivery_source
+  
+  belongs_to :user
+  has_one :order
+  has_one_attached :image
+end
