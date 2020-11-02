@@ -2,7 +2,7 @@
 
   users テーブル
 
-|Colum            |Type         |Options                                 |
+|Colum                |Type         |Options                                 |
 |---------------------|-------------|----------------------------------------|
 |nickname             |string       |null:false                              |
 |email                |string       |null:false                              |
@@ -34,7 +34,7 @@
 
    Association
 - belongs_to user
-- has_one purchase
+- has_one order
 
  
   orders テーブル
