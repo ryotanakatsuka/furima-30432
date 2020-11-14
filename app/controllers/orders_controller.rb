@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
     @form=Form.new
   end
 
+  
+
   def create
     @form=Form.new(order_address_params)
     if @form.valid?
@@ -15,7 +17,7 @@ class OrdersController < ApplicationController
       @form.save
       redirect_to root_path
     else
-      render :index
+      render :new
     end
   end
   
@@ -49,4 +51,5 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
+  
 end
